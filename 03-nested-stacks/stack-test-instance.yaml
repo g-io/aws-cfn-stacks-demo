@@ -1,0 +1,15 @@
+AWSTemplateFormatVersion: 2010-09-09
+Parameters:
+  SecurityGroupName:
+    Type: String
+    Description: Name of the security group stack that this instance should get placed into
+
+Resources:
+  MyTestInstance:
+    Type: AWS::EC2::Instance
+    Properties:
+      ImageId: ami-460c3220
+      InstanceType: t2.nano
+      KeyName: mg-modeldata-ingestion-service
+      SecurityGroups:
+       - !Ref SecurityGroupName

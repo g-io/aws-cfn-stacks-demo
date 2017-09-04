@@ -1,0 +1,21 @@
+AWSTemplateFormatVersion: 2010-09-09
+
+Resources:
+  MyTestInstance:
+    Type: "AWS::EC2::Instance"
+    Properties:
+      ImageId: ami-460c3220
+      InstanceType: t2.nano
+      KeyName: mg-modeldata-ingestion-service
+      SecurityGroups:
+       - !Ref MyTestSecurityGroup
+
+  MyTestSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Access to the host
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 0.0.0.0/0

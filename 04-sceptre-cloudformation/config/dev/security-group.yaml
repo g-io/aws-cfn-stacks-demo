@@ -1,0 +1,5 @@
+template_path: templates/stack-test-security-group.yaml
+stack_tags:
+  team: {{ var.team }}
+  product: {% if environment_variable.PRODUCT is defined %} {{ environment_variable.PRODUCT }} {% else %} {{ var.product }} {% endif %}
+  environment: {{ environment_path.0 }}

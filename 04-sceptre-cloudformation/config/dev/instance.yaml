@@ -1,0 +1,7 @@
+template_path: templates/stack-test-instance.yaml
+parameters:
+  SecurityGroupName: !stack_output dev/security-group::SecurityGroup
+stack_tags:
+  team: {{ var.team }}
+  product: {{ var.product }}
+  environment: {{ environment_path.0 }}

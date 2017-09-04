@@ -1,0 +1,15 @@
+AWSTemplateFormatVersion: 2010-09-09
+
+Resources:
+  Instance:
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      TemplateURL: https://s3-eu-west-1.amazonaws.com/fcst-nwp.ukmo.ukv.dv.s3.mg/sandbox/stack-templates/stack-test-instance.yaml
+      Parameters:
+        SecurityGroupName: !GetAtt SecurityGroup.Outputs.SecurityGroup
+
+  SecurityGroup:
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      TemplateURL: https://s3-eu-west-1.amazonaws.com/fcst-nwp.ukmo.ukv.dv.s3.mg/sandbox/stack-templates/stack-test-security-group.yaml
+
